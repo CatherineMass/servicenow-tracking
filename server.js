@@ -1,4 +1,5 @@
 const express = require('express')
+const data = require("./data.json")
 const app = express()
 const PORT = process.env.PORT || 6700
 
@@ -7,9 +8,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/tracking', (req, res) => {
-  res.send({
-    "shipment": "Hello!!!!"
-  })
+  res.send(data)
 })
 
 app.listen(PORT, () => {
