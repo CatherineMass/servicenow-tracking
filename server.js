@@ -7,7 +7,9 @@ app.get('/', (req, res) => {
   res.send("The API is running, yay yay!!!")
 })
 
-app.get('/tracking', (req, res) => {
+app.get('/tracking/:nb', (req, res) => {
+  const { nb } = req.params;
+  console.log(nb);
   res.send(data)
 })
 
