@@ -9,8 +9,10 @@ app.get('/', (req, res) => {
 
 app.get('/tracking/:nb', (req, res) => {
   const { nb } = req.params
-  console.log(nb)
+  
   const result = data.filter(d => d._id === nb)
+  
+  result.status = new Date(result.edd) > new Date() ? "In progress" : "Delivered"
 
   res.send(result)
 })
