@@ -8,9 +8,11 @@ app.get('/', (req, res) => {
 })
 
 app.get('/tracking/:nb', (req, res) => {
-  const { nb } = req.params;
-  console.log(nb);
-  res.send(data)
+  const { nb } = req.params
+  console.log(nb)
+  const result = data.filter(d => d._id === nb)
+
+  res.send(result)
 })
 
 app.listen(PORT, () => {
