@@ -11,10 +11,8 @@ app.get('/tracking/:nb', (req, res) => {
   const { nb } = req.params
   
   const result = data.filter(d => d._id === nb)
-  
-  JSON.parse(result).status += new Date(result.edd) > new Date() ? "In progress" : "Delivered"
 
-  res.send(JSON.stringify(result))
+  res.send(result)
 })
 
 app.listen(PORT, () => {
