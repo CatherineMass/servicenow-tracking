@@ -12,7 +12,7 @@ app.get('/tracking/:nb', (req, res) => {
   
   const result = data.filter(d => d._id === nb)
   
-  result.status = new Date(result.edd) > new Date() ? "In progress" : "Delivered"
+  result.status += new Date(result.edd) > new Date() ? "In progress" : "Delivered"
 
   res.send(result)
 })
