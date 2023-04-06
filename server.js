@@ -21,14 +21,14 @@ app.get('/weather', async (req, res) => {
   const response = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=59&lon=18&appid=de838abc989f8e5b62217294a1fe83ee&units=metric')
   const data = await response.json()
 
-  const weatherData = {data: [{
+  const weatherData = {
     location: "Stockholm",
     desc: data.weather[0].desc,
     windspd: data.wind.speed,
     temp: data.main.temp,
     feels_like: data.main.feels_like,
     icon: data.weather[0].icon
-  }]}
+  }
 
   res.send(JSON.stringify(weatherData))
 })
