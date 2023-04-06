@@ -18,11 +18,13 @@ app.get('/tracking/:nb', (req, res) => {
 })
 
 app.get('/weather', async (req, res) => {
-  const response = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=18&lon=59&appid=de838abc989f8e5b62217294a1fe83ee&units=metric')
+  const { location, lat, lon, key } = req.headers
+  
+  const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric`)
   const data = await response.json()
 
   const weatherData = {
-    location: "Stockholm",
+    location,
     desc: data.weather[0].description,
     windspd: data.wind.speed,
     temp: data.main.temp,
