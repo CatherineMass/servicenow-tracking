@@ -23,14 +23,14 @@ app.get('/weather', async (req, res) => {
 
   const weatherData = {
     location: "Stockholm",
-    desc: data.weather[0].desc,
+    desc: data.weather[0].description,
     windspd: data.wind.speed,
     temp: data.main.temp,
     feels_like: data.main.feels_like,
     icon: data.weather[0].icon
   }
 
-  res.send(JSON.stringify(weatherData))
+  res.send(weatherData)
 })
 
 app.listen(PORT, () => {
